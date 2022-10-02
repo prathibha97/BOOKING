@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth/auth.route");
 const userRoute = require("./routes/users/users.router");
@@ -7,6 +9,8 @@ const roomRoute = require("./routes/rooms/rooms.router");
 
 const app = express();
 
+app.use(cors({ origin: "http://localhost:3000" }));
+app.use(morgan("combined"));
 app.use(express.json());
 app.use(cookieParser());
 
