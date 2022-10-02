@@ -6,11 +6,14 @@
   "scripts": {
     "install-client": "npm install --prefix client",
     "install-server": "npm install --prefix server",
-    "install": "npm run install-server && npm run install-client",
+    "install-admin": "npm install --prefix admin",
+    "install": "npm run install-server && npm run install-admin && npm run install-admin",
     "server": "npm run watch --prefix server",
     "client": "npm start --prefix client",
-    "watch": "concurrently \"npm run server\" \"npm run client\"",
-    "deploy": "npm run build --prefix client && npm start --prefix server"
+    "admin": "npm start --prefix admin",
+    "admin-server": "concurrently \"npm run server\" \"npm run admin\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy": "npm run build --prefix client && npm run build --prefix admin && npm start --prefix server"
   },
   "repository": {
     "type": "git",
