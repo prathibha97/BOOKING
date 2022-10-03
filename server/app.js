@@ -9,7 +9,15 @@ const roomRoute = require("./routes/rooms/rooms.router");
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    allowedHeaders: ["sessionId", "Content-Type"],
+    exposedHeaders: ["sessionId"],
+    origin: "http://localhost:3000",
+    methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+    preflightContinue: false,
+  })
+);
 app.use(morgan("combined"));
 app.use(express.json());
 app.use(cookieParser());

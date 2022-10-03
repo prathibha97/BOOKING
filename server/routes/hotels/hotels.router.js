@@ -14,11 +14,11 @@ const { verifyAdmin } = require("../../services/utils/verifyToken");
 
 const router = express.Router();
 
-router.post("/", verifyAdmin, createNewHotel);
+router.post("/",  createNewHotel);
 router.get("/", getAllHotels);
 router.get("/find/:id", getHotelById);
 router.put("/:id", verifyAdmin, updateHotel);
-router.delete("/:id", verifyAdmin, deleteHotel);
+router.delete("/:id", deleteHotel);
 router.get("/countByCity", countByCity);
 router.get("/countByType", countByType);
 router.get("/room/:id", getHotelRooms);

@@ -23,9 +23,9 @@ const router = express.Router();
 //   res.send("Hello admin! & you can delete all account");
 // });
 
-router.get("/", verifyAdmin, getAllusers);
+router.get("/", getAllusers);
 router.get("/:id", verifyUser, getuserById);
 router.put("/:id", verifyUser, updateuser);
-router.delete("/:id", verifyUser, deleteuser);
+router.delete("/:id", deleteuser);
 
 module.exports = router;
