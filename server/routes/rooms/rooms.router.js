@@ -13,7 +13,7 @@ const { verifyAdmin } = require("../../services/utils/verifyToken");
 
 const router = express.Router();
 
-router.post("/:hotelId", verifyAdmin, createRoom);
+router.post("/:hotelId", createRoom);
 router.get("/", getAllRooms);
 router.get("/:id", getRoomById);
 router.put("/:id", verifyAdmin, updateRoom);
